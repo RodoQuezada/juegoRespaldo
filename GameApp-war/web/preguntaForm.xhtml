@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./menu.xhtml">
+
+            <ui:define name="content">
+                <h2>Formulario Pregunta</h2>
+                <h:form id="fpf">
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Pregunta"/>
+                        <p:inputText value="#{preguntaBean.preguntaCuestionario}" required="true" placeholder="Ingrese Pregunta" />
+
+                        <h:outputText value="Alternativa A"/>
+                        <p:inputText value="#{preguntaBean.alternativauno}" required="true" placeholder="Ingrese Alternativa A" />
+
+                        <h:outputText value="Alternativa B"/>
+                        <p:inputText value="#{preguntaBean.alternativados}" required="true" placeholder="Ingrese Alternativa B" />
+
+                        <h:outputText value="Alternativa C"/>
+                        <p:inputText value="#{preguntaBean.alternativatres}" required="true" placeholder="Ingrese Alternativa C" />
+
+                        <h:outputText value="Alternativa D"/>
+                        <p:inputText value="#{preguntaBean.alternativacuatro}" required="true" placeholder="Ingrese Alternativa D" />
+
+                        <h:outputText value="Respuesta"/>
+                        <p:selectOneMenu id="menuRespuesta" value="#{preguntaBean.respuesta}">
+                            <f:selectItem itemLabel="A" itemValue="A"/>
+                            <f:selectItem itemLabel="B" itemValue="B"/>
+                            <f:selectItem itemLabel="C" itemValue="C"/>
+                            <f:selectItem itemLabel="D" itemValue="D"/>
+                        </p:selectOneMenu>
+                        <h:outputText value=""/>
+                        <p:commandButton actionListener="#{preguntaBean.crearPregunta()}" value="CREAR" update="fpf" action="case1" />
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
